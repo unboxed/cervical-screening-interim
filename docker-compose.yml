@@ -1,0 +1,14 @@
+services:
+  web:
+    image: node:10.15
+    entrypoint: /app/docker-entrypoint.sh
+    working_dir: /app
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
+    ports:
+      - "3000:3000"
+    command: "npm run watch"
+
+volumes:
+  node_modules:
